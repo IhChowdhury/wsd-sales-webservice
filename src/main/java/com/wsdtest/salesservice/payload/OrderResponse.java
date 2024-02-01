@@ -13,5 +13,5 @@ public class OrderResponse {
     private int pageSize;
     private long totalElements;
     private int totalPages;
-    private boolean last;
+    private boolean last = true;
 }

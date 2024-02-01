@@ -1,16 +1,13 @@
 package com.wsdtest.salesservice.controller;
 
 import com.wsdtest.salesservice.payload.OrderResponse;
+import com.wsdtest.salesservice.service.CustomerService;
 import com.wsdtest.salesservice.service.OrderService;
 import com.wsdtest.salesservice.utils.controller.AppConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
 import java.util.Date;
 
 @RequiredArgsConstructor
@@ -30,5 +27,16 @@ public class OrderController {
             @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
     ) {
         return orderService.getOrderListOfTheDay(orderDate, pageNo, pageSize, sortBy, sortDir);
+    }
+
+    @GetMapping("/{customerId}")
+    public OrderResponse getOrderListOfCustomer(
+            @PathVariable("customerId") int customerId,
+            @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
+    ) {
+        return orderService.getOrderListOfCustomer(customerId, pageNo, pageSize, sortBy, sortDir);
     }
 }
