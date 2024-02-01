@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-
     Page<Order> findAllByOrderDate(Date orderDate, Pageable pageable);
+    List<Order> findAllByOrderDate(Date orderDate);
 
 }
