@@ -7,11 +7,6 @@ import java.util.List;
 
 @Setter
 @Getter
-public class CustomerResponse {
+public class CustomerResponse extends PageableCommonResponse{
     private List<CustomerDto> content;
-    private int pageNo;
-    private int pageSize;
-    private long totalElements;
-    private int totalPages;
-    private boolean last;
 }
