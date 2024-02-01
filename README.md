@@ -17,4 +17,20 @@ or,
 ```shell
 mvn spring-boot:run
 ```
+## To build application
+```shell
+mvn 
+```
 
+## To create Docker image
+- First create an executable jar
+- Then run the following command to target directory
+
+```shell
+docker build -t wsd-sales-webservice:latest .
+```
+
+To run docker image
+```shell
+docker run -p 8080:8080 -t  wsd-sales-webservice
+```
