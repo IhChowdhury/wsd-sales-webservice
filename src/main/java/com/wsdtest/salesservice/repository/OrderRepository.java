@@ -14,4 +14,5 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     Page<Order> findAllByOrderDate(Date orderDate, Pageable pageable);
     List<Order> findAllByOrderDate(Date orderDate);
 
+    List<Order> findAllByOrderDateBetween(Date startDate, Date endDate);
 }

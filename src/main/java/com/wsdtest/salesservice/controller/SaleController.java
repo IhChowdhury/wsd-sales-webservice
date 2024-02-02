@@ -1,5 +1,6 @@
 package com.wsdtest.salesservice.controller;
 
+import com.wsdtest.salesservice.payload.MaxSaleDayResponse;
 import com.wsdtest.salesservice.payload.SaleAmountResponse;
 import com.wsdtest.salesservice.service.SaleService;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +23,13 @@ public class SaleController {
             @DateTimeFormat(pattern = "dd.MM.yyyy") Date saleDate
     ) {
         return saleService.getTotalSaleAmountOfTheDay(saleDate);
+    }
+
+    @GetMapping("/max-sale-day")
+    public MaxSaleDayResponse getMaxSaleDay(
+            @RequestParam(name = "startDate") @DateTimeFormat(pattern = "dd.MM.yyyy") Date startDate,
+            @RequestParam(name = "endDate") @DateTimeFormat(pattern = "dd.MM.yyyy") Date endDate
+    ) {
+        return saleService.getMaxSaleDay(startDate, endDate);
     }
 }
