@@ -7,11 +7,11 @@ import java.util.List;
 
 @Getter
 @Setter
-public class OrderResponse {
+public class OrderResponse extends PageableCommonResponse {
     private List<OrderDTO> content;
-    private int pageNo;
-    private int pageSize;
-    private long totalElements;
-    private int totalPages;
-    private boolean last = true;
+//    private int pageNo;
+//    private int pageSize;
+//    private long totalElements;
+//    private int totalPages;
+//    private boolean last = true;
 }

@@ -23,4 +23,7 @@ public class Customer {
 
     @OneToMany
     private List<Order> orders;
+
+    @ManyToMany
+    private List<Product> productWishes;
 }

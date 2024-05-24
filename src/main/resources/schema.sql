@@ -33,6 +33,14 @@ INSERT INTO customers_orders (customers_id, orders_id) values (2,8);
 INSERT INTO customers_orders (customers_id, orders_id) values (1,9);
 INSERT INTO customers_orders (customers_id, orders_id) values (3,10);
 
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (1,1);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (1,2);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (1,3);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (2,2);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (3,3);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (3,4);
+INSERT INTO customers_product_wishes (customers_id, product_wishes_id) values (3,5);
+
 INSERT INTO line_products (id, product_id, quantity, unit_price) values (1, 1, 2, 1733.00);
 INSERT INTO line_products (id, product_id, quantity, unit_price) values (2, 4, 3, 500.00);
 INSERT INTO line_products (id, product_id, quantity, unit_price) values (3, 1, 4, 1733.00);

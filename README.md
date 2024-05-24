@@ -36,5 +36,5 @@ docker run -p 8080:8080 -t  wsd-sales-webservice
 ```
 
 ## Supported URL
-- [Api documentation](localhost:8080/api-doc)
+- [Api documentation](http://localhost:8080/api-doc)
 - [H2 Console](http://localhost:8080/h2-console/)

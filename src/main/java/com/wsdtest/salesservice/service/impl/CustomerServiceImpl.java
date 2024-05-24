@@ -1,6 +1,9 @@
 package com.wsdtest.salesservice.service.impl;
 
 import com.wsdtest.salesservice.entity.Customer;
+import com.wsdtest.salesservice.entity.CustomerWishList;
+import com.wsdtest.salesservice.entity.Product;
+import com.wsdtest.salesservice.payload.CommonContentResponse;
 import com.wsdtest.salesservice.payload.CustomerDto;
 import com.wsdtest.salesservice.payload.CustomerResponse;
 import com.wsdtest.salesservice.repository.CustomerRepository;
@@ -12,7 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +46,13 @@ public class CustomerServiceImpl implements CustomerService {
         customerResponse.setLast(customers.isLast());
 
         return customerResponse;
+    }
+
+    @Override
+    public CommonContentResponse getCustomerWishlist(int customerId) {
+        CustomerWishList productWishesById = customerRepository.findAllProductWishesById(customerId);
+
+        return CommonContentResponse.getCommonContentResponse(productWishesById.getProductWishes());
     }
 
     private CustomerDto mapToDTO(Customer customer){

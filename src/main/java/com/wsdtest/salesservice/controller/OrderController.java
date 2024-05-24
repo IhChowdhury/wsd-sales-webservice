@@ -17,7 +17,7 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    @GetMapping()
+//    @GetMapping()
     public OrderResponse getOrderListOfTheDay(
             @RequestParam(name = "date", defaultValue = "#{new java.util.Date()}", required = false)
             @DateTimeFormat(pattern = "dd.MM.yyyy") Date orderDate,
@@ -29,7 +29,7 @@ public class OrderController {
         return orderService.getOrderListOfTheDay(orderDate, pageNo, pageSize, sortBy, sortDir);
     }
 
-    @GetMapping("/{customerId}")
+//    @GetMapping("/{customerId}")
     public OrderResponse getOrderListOfCustomer(
             @PathVariable("customerId") int customerId,
             @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,

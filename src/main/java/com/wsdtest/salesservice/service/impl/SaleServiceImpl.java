@@ -1,6 +1,7 @@
 package com.wsdtest.salesservice.service.impl;
 
 import com.wsdtest.salesservice.entity.Order;
+import com.wsdtest.salesservice.entity.Product;
 import com.wsdtest.salesservice.payload.MaxSaleDayResponse;
 import com.wsdtest.salesservice.payload.SaleAmountResponse;
 import com.wsdtest.salesservice.repository.OrderRepository;
@@ -8,6 +9,7 @@ import com.wsdtest.salesservice.service.SaleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -46,6 +48,12 @@ public class SaleServiceImpl implements SaleService {
         return getMaxSaleDayResponse(orderDateAndTotalSaleMap);
     }
 
+    @Override
+    public List<Product> getTop5SaleItemBasedOnTotalSale() {
+        List<Product> top5SellingItems = orderRepository.findTop5SellingItems();
+        return new ArrayList<>();
+    }
+
     private static MaxSaleDayResponse getMaxSaleDayResponse(Map<Date, Double> orderDateAndTotalSaleMap) {
         MaxSaleDayResponse maxSaleDayResponse = new MaxSaleDayResponse();
         List<MaxSaleDayResponse.MaxSaleDay> maxSaleDays = maxSaleDayResponse.getMaxSaleDays();
@@ -64,4 +72,5 @@ public class SaleServiceImpl implements SaleService {
         maxSaleDayResponse.setMaxSaleDays(maxSaleDays);
         return maxSaleDayResponse;
     }
+
 }
